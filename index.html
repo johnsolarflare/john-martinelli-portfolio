@@ -1,0 +1,1205 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>John Martinelli — Portfolio 2026</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600&family=Raleway:wght@100;200;300;400;500&display=swap" rel="stylesheet">
+<style>
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+:root {
+  --black: #000;
+  --border: #161616;
+  --muted: #333;
+  --dim: #555;
+  --sub: #888;
+  --white: #fff;
+}
+
+body {
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+  background: #111;
+  -webkit-print-color-adjust: exact;
+  print-color-adjust: exact;
+  color-adjust: exact;
+}
+
+@media print {
+  body { background: #000; margin: 0; padding: 0; }
+  @page { size: A4 landscape; margin: 0; }
+}
+
+/* ─── SLIDE BASE ─────────────────────────────────────────── */
+.slide {
+  width: 297mm;
+  height: 210mm;
+  background: #000;
+  position: relative;
+  overflow: hidden;
+  page-break-after: always;
+  page-break-inside: avoid;
+  break-after: page;
+  display: flex;
+  flex-direction: column;
+}
+
+@media screen {
+  .slide {
+    margin: 20px auto;
+    box-shadow: 0 30px 90px rgba(0,0,0,0.95), 0 0 0 1px #222;
+  }
+  body { padding: 20px; }
+}
+
+/* ─── LINKS ──────────────────────────────────────────────── */
+a.sl {
+  color: inherit;
+  text-decoration: none;
+}
+a.sl:hover {
+  text-decoration: underline;
+  text-underline-offset: 2px;
+  text-decoration-color: rgba(255,255,255,0.18);
+}
+@media print { a.sl { text-decoration: none !important; } }
+
+/* ─── SHARED ─────────────────────────────────────────────── */
+.slide-label {
+  font-size: 7.5pt;
+  font-weight: 500;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: #444;
+}
+
+.pg {
+  position: absolute;
+  bottom: 6.5mm;
+  right: 10mm;
+  font-size: 7pt;
+  color: #1c1c1c;
+  letter-spacing: 0.08em;
+}
+
+/* ─────────────────────────────────────────────────────────── */
+/*  SLIDE 1 — COVER                                          */
+/* ─────────────────────────────────────────────────────────── */
+.slide-cover {
+  justify-content: center;
+  padding: 0 20mm;
+}
+
+.slide-cover::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background:
+    radial-gradient(ellipse 55% 80% at 95% 50%, #0f0f0f 0%, transparent 70%),
+    radial-gradient(ellipse 30% 40% at 5% 80%, #0a0a0a 0%, transparent 60%);
+}
+
+.cover-eyebrow {
+  font-size: 7.5pt;
+  font-weight: 500;
+  letter-spacing: 0.28em;
+  text-transform: uppercase;
+  color: #444;
+  margin-bottom: 8mm;
+  position: relative;
+  z-index: 1;
+}
+
+.cover-name {
+  font-family: 'Raleway', -apple-system, sans-serif;
+  font-size: 77pt;
+  font-weight: 200;
+  line-height: 0.9;
+  letter-spacing: -0.02em;
+  color: #fff;
+  position: relative;
+  z-index: 1;
+}
+
+.cover-role {
+  margin-top: 8mm;
+  font-size: 13pt;
+  font-weight: 300;
+  color: #888;
+  letter-spacing: 0.04em;
+  position: relative;
+  z-index: 1;
+}
+
+.cover-rule {
+  width: 32mm;
+  height: 0.35mm;
+  background: #222;
+  margin: 8mm 0;
+  position: relative;
+  z-index: 1;
+}
+
+.cover-pillars {
+  display: flex;
+  gap: 6mm;
+  position: relative;
+  z-index: 1;
+}
+
+.cover-pillar {
+  font-size: 8pt;
+  font-weight: 400;
+  color: #666;
+  letter-spacing: 0.06em;
+}
+
+.cover-pillar + .cover-pillar::before {
+  content: '·';
+  margin-right: 6mm;
+  color: #222;
+}
+
+.cover-footer {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  padding: 5mm 20mm;
+  border-top: 0.3mm solid #0e0e0e;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  z-index: 1;
+}
+
+.cover-contacts {
+  display: flex;
+  gap: 8mm;
+}
+
+.cover-contacts span {
+  font-size: 7.5pt;
+  color: #666;
+  letter-spacing: 0.05em;
+}
+
+.cover-year {
+  font-size: 7.5pt;
+  color: #1e1e1e;
+}
+
+/* ─────────────────────────────────────────────────────────── */
+/*  SLIDE 2 — AT A GLANCE                                    */
+/* ─────────────────────────────────────────────────────────── */
+.slide-about {
+  display: grid;
+  grid-template-columns: 1.15fr 0.85fr;
+  flex: 1;
+}
+
+.about-left {
+  padding: 13mm 15mm 13mm 20mm;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.about-headline {
+  font-family: 'Raleway', -apple-system, sans-serif;
+  font-size: 27pt;
+  font-weight: 200;
+  line-height: 1.15;
+  letter-spacing: -0.02em;
+  color: #fff;
+  margin-top: 5mm;
+  margin-bottom: 7mm;
+}
+
+.about-headline span {
+  color: #777;
+}
+
+.about-bio {
+  font-size: 9.5pt;
+  font-weight: 300;
+  line-height: 1.75;
+  color: #aaa;
+  max-width: 118mm;
+}
+
+.about-press {
+  margin-top: 7mm;
+  padding-top: 5mm;
+  border-top: 0.3mm solid #111;
+  font-size: 8pt;
+  font-weight: 300;
+  color: #777;
+  letter-spacing: 0.02em;
+}
+
+.about-press strong {
+  font-weight: 500;
+  color: #999;
+}
+
+.about-right {
+  background: #050505;
+  border-left: 0.3mm solid #0e0e0e;
+  padding: 13mm 14mm;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: center;
+}
+
+.about-photo {
+  width: 34mm;
+  height: 34mm;
+  border-radius: 50%;
+  overflow: hidden;
+  border: 0.4mm solid #1a1a1a;
+  margin-bottom: 9mm;
+  flex-shrink: 0;
+}
+
+.about-photo img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.about-stats {
+  display: flex;
+  flex-direction: column;
+  gap: 6mm;
+  width: 100%;
+}
+
+.stat {
+  border-top: 0.3mm solid #111;
+  padding-top: 4mm;
+}
+
+.stat-n {
+  font-family: 'Raleway', -apple-system, sans-serif;
+  font-size: 30pt;
+  font-weight: 100;
+  letter-spacing: -0.04em;
+  color: #fff;
+  line-height: 1;
+}
+
+.stat-d {
+  font-size: 7.5pt;
+  font-weight: 400;
+  color: #666;
+  margin-top: 1.5mm;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+/* ─────────────────────────────────────────────────────────── */
+/*  SLIDE 3 — EXPERIENCE                                      */
+/* ─────────────────────────────────────────────────────────── */
+.slide-exp {
+  padding: 12mm 20mm;
+}
+
+.slide-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  margin-bottom: 8mm;
+}
+
+.exp-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: 1fr 1fr;
+  gap: 4.5mm 14mm;
+  flex: 1;
+}
+
+.exp-item {
+  border-top: 0.3mm solid #111;
+  padding-top: 4.5mm;
+}
+
+.exp-years {
+  font-size: 7.5pt;
+  color: #555;
+  letter-spacing: 0.06em;
+  margin-bottom: 1.5mm;
+}
+
+.exp-role {
+  font-size: 13pt;
+  font-weight: 300;
+  color: #e8e8e8;
+  line-height: 1.2;
+}
+
+.exp-co {
+  font-size: 9pt;
+  font-weight: 500;
+  color: #888;
+  margin: 1.5mm 0 3mm;
+  letter-spacing: 0.04em;
+}
+
+.exp-desc {
+  font-size: 8.5pt;
+  font-weight: 300;
+  color: #888;
+  line-height: 1.65;
+}
+
+/* ─────────────────────────────────────────────────────────── */
+/*  SLIDE 4 — SELECTED WORK (ALL)                            */
+/* ─────────────────────────────────────────────────────────── */
+.slide-work {
+  padding: 11mm 11mm 11mm;
+}
+
+.work-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  margin-bottom: 5mm;
+  padding: 0 1mm;
+}
+
+.work-count {
+  font-size: 7.5pt;
+  color: #555;
+  letter-spacing: 0.06em;
+}
+
+.proj-grid {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  grid-template-rows: repeat(4, 1fr);
+  gap: 2mm;
+  flex: 1;
+  min-height: 0;
+}
+
+.pt {
+  position: relative;
+  overflow: hidden;
+  background: #080808;
+  min-height: 0;
+}
+
+.pt img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.pt-ov {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to top, rgba(0,0,0,0.88) 0%, rgba(0,0,0,0.05) 55%, transparent 100%);
+  display: flex;
+  align-items: flex-end;
+  padding: 2.5mm 3mm 2mm;
+}
+
+.pt-name {
+  font-size: 7pt;
+  font-weight: 400;
+  color: #bbb;
+  line-height: 1.2;
+}
+
+/* ─────────────────────────────────────────────────────────── */
+/*  SLIDE 5 & 6 — SPOTLIGHT                                  */
+/* ─────────────────────────────────────────────────────────── */
+.slide-spot {
+  padding: 12mm 20mm;
+}
+
+.spot-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 5mm;
+  flex: 1;
+  margin-top: 6mm;
+}
+
+.spot-card {
+  display: flex;
+  flex-direction: column;
+}
+
+.spot-img {
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  overflow: hidden;
+  background: #0a0a0a;
+  flex-shrink: 0;
+}
+
+.spot-img img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.spot-body {
+  padding-top: 3.5mm;
+  flex: 1;
+}
+
+.spot-brand {
+  font-size: 7pt;
+  font-weight: 500;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: #555;
+  margin-bottom: 1.5mm;
+}
+
+.spot-title {
+  font-size: 11.5pt;
+  font-weight: 300;
+  color: #e8e8e8;
+  line-height: 1.2;
+  margin-bottom: 2.5mm;
+}
+
+.spot-tech {
+  font-size: 7.5pt;
+  font-weight: 300;
+  color: #666;
+  line-height: 1.55;
+  margin-bottom: 2mm;
+}
+
+.spot-desc {
+  font-size: 8.5pt;
+  font-weight: 300;
+  color: #999;
+  line-height: 1.6;
+}
+
+/* ─────────────────────────────────────────────────────────── */
+/*  SLIDE 7 — CAPABILITIES & TRUSTED BY                      */
+/* ─────────────────────────────────────────────────────────── */
+.slide-cap {
+  display: grid;
+  grid-template-columns: 1.55fr 1fr;
+  height: 100%;
+}
+
+.cap-left {
+  padding: 12mm 14mm 12mm 20mm;
+  display: flex;
+  flex-direction: column;
+}
+
+.cap-cols {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 5mm;
+  margin-top: 6mm;
+  flex: 1;
+}
+
+.cap-col-title {
+  font-size: 7pt;
+  font-weight: 600;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: #444;
+  margin-bottom: 4mm;
+  padding-bottom: 3mm;
+  border-bottom: 0.3mm solid #111;
+}
+
+.cap-list {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 2.5mm;
+}
+
+.cap-list li {
+  font-size: 9pt;
+  font-weight: 300;
+  color: #aaa;
+  display: flex;
+  align-items: center;
+  gap: 2.5mm;
+}
+
+.cap-list li::before {
+  content: '';
+  width: 2.5px;
+  height: 2.5px;
+  border-radius: 50%;
+  background: #2a2a2a;
+  flex-shrink: 0;
+}
+
+.cap-right {
+  background: #050505;
+  border-left: 0.3mm solid #0e0e0e;
+  padding: 12mm;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.trusted-label {
+  font-size: 7pt;
+  font-weight: 500;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: #1e1e1e;
+  margin-bottom: 9mm;
+}
+
+.logo-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 7mm 5mm;
+  align-items: center;
+}
+
+.logo-item {
+  display: flex;
+  align-items: center;
+}
+
+.logo-item img {
+  max-height: 15px;
+  max-width: 85px;
+  opacity: 0.55;
+  filter: brightness(0) invert(1);
+  object-fit: contain;
+}
+
+.edu-note {
+  margin-top: 10mm;
+  padding-top: 8mm;
+  border-top: 0.3mm solid #0e0e0e;
+  font-size: 8pt;
+  font-weight: 300;
+  color: #555;
+  line-height: 1.6;
+}
+
+.edu-note strong {
+  color: #777;
+  font-weight: 500;
+}
+
+/* ─────────────────────────────────────────────────────────── */
+/*  SLIDE 8 — CONTACT                                        */
+/* ─────────────────────────────────────────────────────────── */
+.slide-contact {
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 18mm 20mm;
+}
+
+.contact-eyebrow {
+  font-size: 7.5pt;
+  font-weight: 500;
+  letter-spacing: 0.28em;
+  text-transform: uppercase;
+  color: #444;
+  margin-bottom: 7mm;
+}
+
+.contact-headline {
+  font-family: 'Raleway', -apple-system, sans-serif;
+  font-size: 52pt;
+  font-weight: 200;
+  letter-spacing: -0.03em;
+  color: #fff;
+  line-height: 0.95;
+}
+
+.contact-sub {
+  font-size: 11pt;
+  font-weight: 300;
+  color: #666;
+  margin-top: 5mm;
+  letter-spacing: 0.04em;
+}
+
+.contact-rule {
+  width: 20mm;
+  height: 0.35mm;
+  background: #111;
+  margin: 8mm auto;
+}
+
+.contact-links {
+  display: flex;
+  gap: 12mm;
+  justify-content: center;
+}
+
+.c-item {}
+
+.c-label {
+  font-size: 7pt;
+  color: #444;
+  text-transform: uppercase;
+  letter-spacing: 0.18em;
+  margin-bottom: 2mm;
+}
+
+.c-val {
+  font-size: 10.5pt;
+  font-weight: 300;
+  color: #999;
+}
+
+.contact-press {
+  margin-top: 10mm;
+  padding-top: 8mm;
+  border-top: 0.3mm solid #0e0e0e;
+  max-width: 200mm;
+}
+
+.press-label {
+  font-size: 7pt;
+  color: #333;
+  text-transform: uppercase;
+  letter-spacing: 0.18em;
+  margin-bottom: 4mm;
+}
+
+.press-items {
+  display: flex;
+  flex-direction: column;
+  gap: 2mm;
+}
+
+.press-item {
+  font-size: 8.5pt;
+  font-weight: 300;
+  color: #666;
+}
+</style>
+</head>
+<body>
+
+<!-- ══════════════════════════════════════════════════════════
+     SLIDE 1 — COVER
+══════════════════════════════════════════════════════════ -->
+<div class="slide slide-cover">
+  <div class="cover-eyebrow">Portfolio · 2026</div>
+  <div class="cover-name">JOHN<br>MARTINELLI</div>
+  <div class="cover-role">Head of Production &nbsp;·&nbsp; Creative Producer</div>
+  <div class="cover-rule"></div>
+  <div class="cover-pillars">
+    <span class="cover-pillar">Creative Technology</span>
+    <span class="cover-pillar">Brand Experiences</span>
+    <span class="cover-pillar">Immersive Production</span>
+    <span class="cover-pillar">AI &amp; Innovation</span>
+  </div>
+  <div class="cover-footer">
+    <div class="cover-contacts">
+      <span><a href="https://www.johnmartinelli.co.uk" target="_blank" class="sl">johnmartinelli.co.uk</a></span>
+      <span><a href="mailto:iamjohnmart@gmail.com" class="sl">iamjohnmart@gmail.com</a></span>
+      <span><a href="https://www.linkedin.com/in/john-martinelli-98a1624b" target="_blank" class="sl">linkedin.com/in/john-martinelli-98a1624b</a></span>
+    </div>
+    <div class="cover-year">© 2026</div>
+  </div>
+  <span class="pg">01</span>
+</div>
+
+
+<!-- ══════════════════════════════════════════════════════════
+     SLIDE 2 — AT A GLANCE
+══════════════════════════════════════════════════════════ -->
+<div class="slide">
+  <div class="slide-about" style="flex:1; height:100%;">
+
+    <div class="about-left">
+      <div class="slide-label">At a Glance</div>
+      <div class="about-headline">
+        I lead creative tech projects<br>
+        <span>that mix innovation</span><br>with impact.
+      </div>
+      <div class="about-bio">
+        With over 15 years' experience I've delivered brand activations, interactive installations,
+        and digital experiences that bring together creativity, technology, and seamless execution.
+        I've built and led teams, run studios, and developed strong client relationships — always
+        focused on delivering best-in-class work, on time and to a high standard.
+      </div>
+      <div class="about-press">
+        <strong>Featured in:</strong> &nbsp;LBBonline — "Meet the Technologists" &amp;
+        "The Good, the Bad and the Ugly in the Digital Landscape"
+      </div>
+    </div>
+
+    <div class="about-right">
+      <div class="about-photo">
+        <img
+          src="https://static.wixstatic.com/media/e50243_dd7f53327bb6476d86d23a2a83ebeb8e~mv2.png/v1/crop/x_0,y_66,w_964,h_964/fill/w_400,h_400,al_c,q_90/profile.png"
+          alt="John Martinelli"
+        >
+      </div>
+      <div class="about-stats">
+        <div class="stat">
+          <div class="stat-n">15+</div>
+          <div class="stat-d">Years Experience</div>
+        </div>
+        <div class="stat">
+          <div class="stat-n">360°</div>
+          <div class="stat-d">End-to-End Production</div>
+        </div>
+        <div class="stat">
+          <div class="stat-n">Global</div>
+          <div class="stat-d">Brands &amp; Clients</div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+  <span class="pg">02</span>
+</div>
+
+
+<!-- ══════════════════════════════════════════════════════════
+     SLIDE 3 — EXPERIENCE
+══════════════════════════════════════════════════════════ -->
+<div class="slide slide-exp">
+  <div class="slide-header">
+    <div class="slide-label">Experience</div>
+    <div class="slide-label" style="color:#1a1a1a; letter-spacing:0.1em;">Production · Creative · Digital</div>
+  </div>
+
+  <div class="exp-grid">
+
+    <div class="exp-item">
+      <div class="exp-years">2025 — 2026 · 6-Month Freelance</div>
+      <div class="exp-role">Production &amp; Digital Lead</div>
+      <div class="exp-co">Athlon</div>
+      <div class="exp-desc">
+        Delivered best-in-class rebranding and full website rebuilds for top-tier clients.
+        Managed long-term technical retainers across complex CMS systems, ensuring the quality,
+        uptime, and continuous development of enterprise-level digital properties.
+      </div>
+    </div>
+
+    <div class="exp-item">
+      <div class="exp-years">2019 — Present</div>
+      <div class="exp-role">Co-Founder &amp; Head of Production</div>
+      <div class="exp-co">Solarflare Studio &nbsp;·&nbsp; London</div>
+      <div class="exp-desc">
+        Overseeing all areas of the business — from strategic growth to inbound/outbound finances.
+        Planning and managing production across VR, AR, MR, and experiential campaigns.
+        Building teams, running studios, and delivering complex multi-tech projects in parallel.
+      </div>
+    </div>
+
+    <div class="exp-item">
+      <div class="exp-years">2018 — 2019</div>
+      <div class="exp-role">Head of Production</div>
+      <div class="exp-co">INITION &nbsp;·&nbsp; London</div>
+      <div class="exp-desc">
+        Bespoke project planning, budgeting, and SOW documentation at London's leading immersive
+        tech studio. Managing daily operations, forecasting revenue, and collaborating with sales
+        to drive retained business. Continuous research into emerging technologies.
+      </div>
+    </div>
+
+    <div class="exp-item">
+      <div class="exp-years">2014 — 2018</div>
+      <div class="exp-role">Production Manager</div>
+      <div class="exp-co">Blippar &nbsp;·&nbsp; London</div>
+      <div class="exp-desc">
+        International studio and project management. Daily workflow, resource planning, and
+        budget management for clients including Pepsi, Coca-Cola, Kellogg's and the British
+        Consulate. Implemented Traffic Live and drove operational efficiency across all teams.
+      </div>
+    </div>
+
+  </div>
+  <span class="pg">03</span>
+</div>
+
+
+<!-- ══════════════════════════════════════════════════════════
+     SLIDE 4 — SELECTED WORK (ALL PROJECTS)
+══════════════════════════════════════════════════════════ -->
+<div class="slide slide-work">
+  <div class="work-header">
+    <div class="slide-label">Selected Work</div>
+    <div class="work-count">20 Projects</div>
+  </div>
+
+  <div class="proj-grid">
+
+    <div class="pt">
+      <img src="https://static.wixstatic.com/media/e50243_e289b4591c454e51a34572ec5c8a733f~mv2.png/v1/fill/w_600,h_480,al_c,q_90/image.png" alt="">
+      <div class="pt-ov"><div class="pt-name">HP / Ferrari — AI Chatbot</div></div>
+    </div>
+
+    <div class="pt">
+      <img src="https://static.wixstatic.com/media/e50243_0966d270adb44508a39bd499aa9633b4f000.jpg/v1/fill/w_600,h_480,al_c,q_90/image.jpg" alt="">
+      <div class="pt-ov"><div class="pt-name">ASICS — Innovation Summit</div></div>
+    </div>
+
+    <div class="pt">
+      <img src="https://static.wixstatic.com/media/e50243_9e30b0bc47d3497b8d15b3745e276fd6~mv2.png/v1/fill/w_600,h_480,al_c,q_90/image.png" alt="">
+      <div class="pt-ov"><div class="pt-name">Google — Morphing Clay</div></div>
+    </div>
+
+    <div class="pt">
+      <img src="https://static.wixstatic.com/media/e50243_576316747649489bb30a4490a1e9bf1ef000.jpg/v1/fill/w_600,h_480,al_c,q_90/image.jpg" alt="">
+      <div class="pt-ov"><div class="pt-name">Heineken — Refresh Takeover</div></div>
+    </div>
+
+    <div class="pt">
+      <img src="https://static.wixstatic.com/media/e50243_a8b95c9252784de0a974cac1b912ced5~mv2.png/v1/fill/w_600,h_480,al_c,q_90/image.png" alt="">
+      <div class="pt-ov"><div class="pt-name">MOL Campus Visitor Centre</div></div>
+    </div>
+
+    <div class="pt">
+      <img src="https://static.wixstatic.com/media/e50243_4c31febc6ea84862bf0dccc8d5384d8b~mv2.png/v1/fill/w_600,h_480,al_c,q_90/image.png" alt="">
+      <div class="pt-ov"><div class="pt-name">Beneath the Swarm</div></div>
+    </div>
+
+    <div class="pt">
+      <img src="https://static.wixstatic.com/media/e50243_6eaed5210c554f03b192ac2152161126~mv2.jpg/v1/fill/w_600,h_480,al_c,q_90/image.jpg" alt="">
+      <div class="pt-ov"><div class="pt-name">UEFA — The Ultimate Knockout</div></div>
+    </div>
+
+    <div class="pt">
+      <img src="https://solarflarestudio.co.uk/wp-content/uploads/2025/12/20251217_164152-scaled.jpg" alt="">
+      <div class="pt-ov"><div class="pt-name">Nike NOCTA — Code Launch</div></div>
+    </div>
+
+    <div class="pt">
+      <img src="https://static.wixstatic.com/media/e50243_d32947173acc483383c9e29332541fd0~mv2.jpeg/v1/fill/w_600,h_480,al_c,q_90/image.jpeg" alt="">
+      <div class="pt-ov"><div class="pt-name">ASICS — Mind Uplifter</div></div>
+    </div>
+
+    <div class="pt">
+      <img src="https://static.wixstatic.com/media/e50243_5ee6aeab47614c508e980a09c125a2a4~mv2.webp/v1/fill/w_600,h_480,al_c,q_90/image.webp" alt="">
+      <div class="pt-ov"><div class="pt-name">ASICS — Mindrace</div></div>
+    </div>
+
+    <div class="pt">
+      <img src="https://static.wixstatic.com/media/e50243_fd4828ddbba446499621594df7173614~mv2.png/v1/fill/w_600,h_480,al_c,q_90/image.png" alt="">
+      <div class="pt-ov"><div class="pt-name">Airbus</div></div>
+    </div>
+
+    <div class="pt">
+      <img src="https://static.wixstatic.com/media/e50243_505b08e7c31447b8b3c0ef71b57a20d0~mv2.webp/v1/fill/w_600,h_480,al_c,q_90/image.webp" alt="">
+      <div class="pt-ov"><div class="pt-name">Cathay Pacific — Lounge</div></div>
+    </div>
+
+    <div class="pt">
+      <img src="https://static.wixstatic.com/media/e50243_8299118326ae485a9075766baa254e0e~mv2.webp/v1/fill/w_600,h_480,al_c,q_90/image.webp" alt="">
+      <div class="pt-ov"><div class="pt-name">Ford Mustang Mach-E</div></div>
+    </div>
+
+    <div class="pt">
+      <img src="https://static.wixstatic.com/media/e50243_212f90aec8584e0fb55ec52b32a906f9~mv2.jpeg/v1/fill/w_600,h_480,al_c,q_90/image.jpeg" alt="">
+      <div class="pt-ov"><div class="pt-name">Goodwood — Festival of Speed</div></div>
+    </div>
+
+    <div class="pt">
+      <img src="https://static.wixstatic.com/media/e50243_9f36db9c057440d69d7cd4e7ec29c2c1~mv2.webp/v1/fill/w_600,h_480,al_c,q_90/image.webp" alt="">
+      <div class="pt-ov"><div class="pt-name">LEGO Friends — Legoland</div></div>
+    </div>
+
+    <div class="pt">
+      <img src="https://static.wixstatic.com/media/e50243_b1a50feadda940be8def445204560f63~mv2.png/v1/fill/w_600,h_480,al_c,q_90/image.png" alt="">
+      <div class="pt-ov"><div class="pt-name">Lego Technic × Lamborghini</div></div>
+    </div>
+
+    <div class="pt">
+      <img src="https://static.wixstatic.com/media/e50243_e0f7ca78b3dc4a1183e9fadaca424bd6~mv2.webp/v1/fill/w_600,h_480,al_c,q_90/image.webp" alt="">
+      <div class="pt-ov"><div class="pt-name">RSA — Virtual Learning Portal</div></div>
+    </div>
+
+    <div class="pt">
+      <img src="https://static.wixstatic.com/media/e50243_64a0a5c90dae4e0596716b6631b7b412~mv2.jpeg/v1/fill/w_600,h_480,al_c,q_90/image.jpeg" alt="">
+      <div class="pt-ov"><div class="pt-name">Roche — MS Awareness</div></div>
+    </div>
+
+    <div class="pt">
+      <img src="https://static.wixstatic.com/media/e50243_245f68a7d09d404498018a5e893dae68~mv2.png/v1/fill/w_600,h_480,al_c,q_90/image.png" alt="">
+      <div class="pt-ov"><div class="pt-name">Wimbledon — Virtual Hill</div></div>
+    </div>
+
+    <div class="pt">
+      <img src="https://static.wixstatic.com/media/e50243_ccdf5c03525e480c887cf9ad30bd4ca3~mv2.png/v1/fill/w_600,h_480,al_c,q_90/image.png" alt="">
+      <div class="pt-ov"><div class="pt-name">World of Impact</div></div>
+    </div>
+
+  </div>
+  <span class="pg">04</span>
+</div>
+
+
+<!-- ══════════════════════════════════════════════════════════
+     SLIDE 5 — SPOTLIGHT: AI & IMMERSIVE TECHNOLOGY
+══════════════════════════════════════════════════════════ -->
+<div class="slide slide-spot">
+  <div class="slide-header">
+    <div class="slide-label">Spotlight — Brand &amp; Creative</div>
+  </div>
+
+  <div class="spot-grid">
+
+    <!-- Card 1: Nike NOCTA -->
+    <div class="spot-card">
+      <div class="spot-img">
+        <img src="https://solarflarestudio.co.uk/wp-content/uploads/2025/12/20251217_164152-scaled.jpg" alt="Nike NOCTA Code Launch">
+      </div>
+      <div class="spot-body">
+        <div class="spot-brand">Nike / NOCTA</div>
+        <div class="spot-title">Code Launch Installation</div>
+        <div class="spot-tech">TouchDesigner · Projection Mapping · Custom Game Dev · Laser Glove Interface · Live Leaderboard</div>
+        <div class="spot-desc">
+          Real-time projection-based laser targeting game built for NOCTA's London launch at The Truman Brewery.
+          Bespoke laser glove interface drove competitive gameplay with live scoring — the standout activation of the night.
+        </div>
+      </div>
+    </div>
+
+    <!-- Card 2: ASICS Mindrace -->
+    <div class="spot-card">
+      <div class="spot-img">
+        <img src="https://solarflarestudio.co.uk/wp-content/uploads/2022/06/ASICS-Mind-Race_01.png" alt="ASICS Mind Race">
+      </div>
+      <div class="spot-body">
+        <div class="spot-brand">ASICS</div>
+        <div class="spot-title">Mind Race</div>
+        <div class="spot-tech">EEG · Muse 2 Headsets · Data Visualisation · Real-Time Particle Simulation · AI Facial Scanning</div>
+        <div class="spot-desc">
+          Global study across 50+ participants in 21 countries measuring the mental impact of inactivity.
+          Live EEG and biometric data translated into atmospheric real-time particle visualisations.
+          Cannes shortlisted · Drum Awards winner.
+        </div>
+      </div>
+    </div>
+
+    <!-- Card 3: Google -->
+    <div class="spot-card">
+      <div class="spot-img">
+        <img src="https://static.wixstatic.com/media/e50243_9e30b0bc47d3497b8d15b3745e276fd6~mv2.png/v1/fill/w_900,h_506,al_c,q_90/image.png" alt="Google Morphing Clay">
+      </div>
+      <div class="spot-body">
+        <div class="spot-brand">Google</div>
+        <div class="spot-title">Morphing Clay</div>
+        <div class="spot-tech">TensorFlow · Unity HDRP · Gesture-Controlled Displays · Machine Learning</div>
+        <div class="spot-desc">
+          Gestural interactive installation powered by Google's TensorFlow ML platform. Real-time
+          clay-like visuals responded to user movement using Unity's High Definition Render Pipeline.
+        </div>
+      </div>
+    </div>
+
+  </div>
+  <span class="pg">05</span>
+</div>
+
+
+<!-- ══════════════════════════════════════════════════════════
+     SLIDE 6 — SPOTLIGHT: EXPERIENTIAL & LIVE EVENTS
+══════════════════════════════════════════════════════════ -->
+<div class="slide slide-spot">
+  <div class="slide-header">
+    <div class="slide-label">Spotlight — Live Events &amp; AI</div>
+  </div>
+
+  <div class="spot-grid">
+
+    <!-- Card 1: Heineken -->
+    <div class="spot-card">
+      <div class="spot-img">
+        <img src="https://static.wixstatic.com/media/e50243_576316747649489bb30a4490a1e9bf1ef000.jpg/v1/fill/w_900,h_506,al_c,q_90/image.jpg" alt="Heineken Refresh Takeover">
+      </div>
+      <div class="spot-body">
+        <div class="spot-brand">Heineken</div>
+        <div class="spot-title">Refresh Takeover</div>
+        <div class="spot-tech">LED Wristband Integration · Real-Time Voting · Crowd Gaming Software · Live Sync</div>
+        <div class="spot-desc">
+          Mass-scale live event experience synchronising thousands of LED wristbands with real-time
+          audience voting. Proprietary crowd gaming software created an entirely unified crowd moment.
+        </div>
+      </div>
+    </div>
+
+    <!-- Card 2: MOL Campus -->
+    <div class="spot-card">
+      <div class="spot-img">
+        <img src="https://static.wixstatic.com/media/e50243_a8b95c9252784de0a974cac1b912ced5~mv2.png/v1/fill/w_900,h_506,al_c,q_90/image.png" alt="MOL Campus Visitor Centre">
+      </div>
+      <div class="spot-body">
+        <div class="spot-brand">MOL Campus</div>
+        <div class="spot-title">Visitor Centre</div>
+        <div class="spot-tech">Robotics · Augmented Reality · TouchDesigner · Azure Kinect · Multi-touch LED · 3D Printing</div>
+        <div class="spot-desc">
+          Flagship interactive visitor experience combining robotics, AR, and gesture-driven
+          multi-touch LED displays. A fully immersive corporate showcase blending physical and digital.
+        </div>
+      </div>
+    </div>
+
+    <!-- Card 3: HP/Ferrari -->
+    <div class="spot-card">
+      <div class="spot-img">
+        <img src="https://static.wixstatic.com/media/e50243_e289b4591c454e51a34572ec5c8a733f~mv2.png/v1/fill/w_900,h_506,al_c,q_90/image.png" alt="HP Ferrari AI Chatbot">
+      </div>
+      <div class="spot-body">
+        <div class="spot-brand">HP / Ferrari</div>
+        <div class="spot-title">AI Chatbot &amp; Pit Lane Simulator</div>
+        <div class="spot-tech">AI Chatbot · OpenAI Custom Frameworks · GPU-Accelerated Visuals · JavaScript Web App</div>
+        <div class="spot-desc">
+          Real-time AI chatbot experience deployed within a Formula 1 pit lane simulator environment.
+          Custom OpenAI architecture powering a bespoke conversation system with GPU-driven visuals.
+        </div>
+      </div>
+    </div>
+
+  </div>
+  <span class="pg">06</span>
+</div>
+
+
+<!-- ══════════════════════════════════════════════════════════
+     SLIDE 7 — CAPABILITIES & TRUSTED BY
+══════════════════════════════════════════════════════════ -->
+<div class="slide slide-cap">
+
+  <div class="cap-left">
+    <div class="slide-label">Capabilities</div>
+    <div class="cap-cols">
+
+      <div class="cap-col">
+        <div class="cap-col-title">Production &amp; Delivery</div>
+        <ul class="cap-list">
+          <li>End-to-End Project Lifecycle</li>
+          <li>Multi-Disciplinary Team Leadership</li>
+          <li>Budget Management &amp; Forecasting</li>
+          <li>Client &amp; Stakeholder Reporting</li>
+          <li>Agile &amp; Waterfall Methodologies</li>
+          <li>Studio &amp; Operations Management</li>
+        </ul>
+      </div>
+
+      <div class="cap-col">
+        <div class="cap-col-title">Creative &amp; Digital</div>
+        <ul class="cap-list">
+          <li>Digital Branding &amp; Web Builds</li>
+          <li>CMS Strategy &amp; Integration</li>
+          <li>XR Production — VR / AR / MR</li>
+          <li>Interactive Installations</li>
+          <li>Brand Activations &amp; Live Events</li>
+          <li>WebGL &amp; Digital Experiences</li>
+        </ul>
+      </div>
+
+      <div class="cap-col">
+        <div class="cap-col-title">AI &amp; Innovation</div>
+        <ul class="cap-list">
+          <li>Generative AI — Image, Video &amp; Voice</li>
+          <li>AI Workflow &amp; Pipeline Automation</li>
+          <li>LLM Integration &amp; Prompt Engineering</li>
+          <li>Vibe Coding &amp; Rapid Prototyping</li>
+          <li>OpenAI · Claude · Google AI Studio</li>
+          <li>Midjourney · ElevenLabs · Replit</li>
+        </ul>
+      </div>
+
+    </div>
+  </div>
+
+  <div class="cap-right">
+    <div class="trusted-label">Trusted By</div>
+    <div class="logo-grid">
+      <div class="logo-item">
+        <img src="https://static.wixstatic.com/media/e50243_d187efda74984b16a144342dc60adf32~mv2.png" alt="BBC">
+      </div>
+      <div class="logo-item">
+        <img src="https://static.wixstatic.com/media/e50243_acd55404828a4ab7a2fedead600d89a9~mv2.png" alt="Heineken">
+      </div>
+      <div class="logo-item">
+        <img src="https://static.wixstatic.com/media/e50243_a19bdf3857d74666819a8b3e6e973584~mv2.png" alt="ASICS">
+      </div>
+      <div class="logo-item">
+        <img src="https://static.wixstatic.com/media/e50243_e6c92c36949248eba22e661f4cff05f5~mv2.png" alt="UEFA">
+      </div>
+      <div class="logo-item">
+        <img src="https://static.wixstatic.com/media/e50243_41f25d2b880948a89f45ff3b7209ec11~mv2.png" alt="Google">
+      </div>
+      <div class="logo-item">
+        <img src="https://static.wixstatic.com/media/e50243_5876ebdc1a4c47358ac549ee10f8c921~mv2.png" alt="Wasserman">
+      </div>
+      <div class="logo-item">
+        <img src="https://static.wixstatic.com/media/e50243_044c949311ce47e7a96546a76eff2145~mv2.png" alt="Wimbledon">
+      </div>
+      <div class="logo-item">
+        <img src="https://static.wixstatic.com/media/e50243_a7ae1229de2d431ab2204940276b4c06~mv2.png" alt="Lamborghini">
+      </div>
+    </div>
+
+    <div class="edu-note">
+      <strong>Education</strong><br>
+      BA Hons Music &amp; Sound Design<br>
+      Ravensbourne University, London &nbsp;·&nbsp; 2009–2011
+    </div>
+  </div>
+
+  <span class="pg">07</span>
+</div>
+
+
+<!-- ══════════════════════════════════════════════════════════
+     SLIDE 8 — CONTACT
+══════════════════════════════════════════════════════════ -->
+<div class="slide slide-contact">
+  <div class="contact-eyebrow">Let's Work Together</div>
+  <div class="contact-headline">Get In<br>Touch.</div>
+  <div class="contact-sub">Open to new opportunities, collaborations &amp; conversations.</div>
+  <div class="contact-rule"></div>
+  <div class="contact-links">
+    <div class="c-item">
+      <div class="c-label">Email</div>
+      <div class="c-val"><a href="mailto:iamjohnmart@gmail.com" class="sl">iamjohnmart@gmail.com</a></div>
+    </div>
+    <div class="c-item">
+      <div class="c-label">Website</div>
+      <div class="c-val"><a href="https://www.johnmartinelli.co.uk" target="_blank" class="sl">johnmartinelli.co.uk</a></div>
+    </div>
+    <div class="c-item">
+      <div class="c-label">LinkedIn</div>
+      <div class="c-val"><a href="https://www.linkedin.com/in/john-martinelli-98a1624b" target="_blank" class="sl">john-martinelli-98a1624b</a></div>
+    </div>
+  </div>
+
+  <div class="contact-press">
+    <div class="press-label">Press</div>
+    <div class="press-items">
+      <div class="press-item"><a href="https://www.lbbonline.com/news/meet-the-technologists-john-martinelli" target="_blank" class="sl">LBBonline — "Meet the Technologists: John Martinelli"</a></div>
+      <div class="press-item"><a href="https://www.lbbonline.com/news/the-good-the-bad-and-the-ugly-in-the-digital-landscape" target="_blank" class="sl">LBBonline — "The Good, the Bad and the Ugly in the Digital Landscape"</a></div>
+    </div>
+  </div>
+
+  <span class="pg">08</span>
+</div>
+
+</body>
+</html>
